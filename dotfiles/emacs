@@ -1,0 +1,32 @@
+;; Extra package repositories
+(require 'package)
+(add-to-list 'package-archives '("tromey" . "http://tromey.com/elpa/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+;; Theme
+(load-theme 'solarized-light t)
+(set-default-font "Source Code Pro-10")
+
+;; Interactively do shit!
+(require 'ido)
+(ido-mode t)
+(ido-ubiquitous-mode t)
+
+;; Line numbers are good!
+(global-linum-mode t)
+(global-hl-line-mode)
+(column-number-mode t)
+
+;; Highlight matching parens and autopair them
+(show-paren-mode t)
+(require 'autopair)
+(autopair-global-mode t)
+
+;; Auto-completion is sick!
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+;; K&R style C/C++ code
+(setq c-basic-offset 8)
+(setq c-default-style "k&r" -basic-offset)

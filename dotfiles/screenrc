@@ -1,0 +1,5 @@
+# Don't bug me
+startup_message off
+
+# Hardstatus line
+hardstatus alwayslastline " [ %-w%{+b ..}%n %t%{-}%+w ]%-= [ %C ] [ %H ]"
