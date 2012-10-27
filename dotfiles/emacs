@@ -5,17 +5,29 @@
 (package-initialize)
 
 ;; Theme
-(load-theme 'solarized-light t)
-(set-default-font "Source Code Pro-10")
+(load-theme 'wombat t)
+n(set-default-font "Droid Sans Mono-8")
+(set-default-font "Terminus-8")
+
+;; Hide menu bar, tool bar, and scroll bars
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; Interactively do shit!
 (require 'ido)
 (ido-mode t)
 (ido-ubiquitous-mode t)
 
+;; Easy window movement
+(require 'windmove)
+(windmove-default-keybindings 'meta)
+
+;; Better buffer naming
+(require 'uniquify)
+
 ;; Line numbers are good!
 (global-linum-mode t)
-(global-hl-line-mode)
 (column-number-mode t)
 
 ;; Highlight matching parens and autopair them
@@ -28,5 +40,28 @@
 (global-auto-complete-mode t)
 
 ;; K&R style C/C++ code
-(setq c-basic-offset 8)
+(setq indent-tabs-mode nil)
+(setq tab-width 4)
+(setq c-basic-offset 4)
 (setq c-default-style "k&r" -basic-offset)
+
+;; Keybinds
+(global-set-key (kbd "C-c c") 'comment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
+
+;; IRC
+(require 'erc)
+(erc-autojoin-mode t)
+(setq erc-autojoin-channels-alist
+      '(("rizon.net" "#/g/sicp" "#/g/amedev")
+	("freenode.net" "#mediagoblin" "#libre.fm" "#allegro" "#guile" "#emacs")
+	("gimp.org" "#evolution")))
+(erc-track-mode t)
+(setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE" "324" "329" "332" "333" "353" "477"))
+
+;; Join IRC channels
+(defun start-irc ()
+  (interactive)
+  (erc :server "irc.freenode.net" :port 6667 :nick "davexunit")
+  (erc :server "irc.rizon.net"    :port 6667 :nick "davexunit"))
+(global-set-key (kbd "C-c i") 'start-irc)
