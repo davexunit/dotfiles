@@ -7,6 +7,8 @@
 ** What's in the Box?
   You will find my configuration files for:
    - Bash
+   - Git
+   - GNU Guile
    - GNU Screen
    - StumpWM
    - X
