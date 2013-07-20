@@ -7,3 +7,6 @@
    - GNU Screen
    - StumpWM
    - X
+
+  Perhaps you are interested in my Emacs configuration. That has its
+  own repository. [[https://github.com/davexunit/.emacs.d][Check it out.]]
