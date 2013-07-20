@@ -1,0 +1,9 @@
+* Dave's Dotfiles
+
+  Because all of the cool kids version control their dotfiles.
+
+  You will find my configuration files for:
+   - Bash
+   - GNU Screen
+   - StumpWM
+   - X
